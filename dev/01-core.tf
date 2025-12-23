@@ -3,15 +3,15 @@
 module "core_infrastructure" {
   source = "../modules/01-core"
 
-  short_name    = "demo"
-  short_name_lc = "demo"
-  location      = "East US"
-  environment   = "dev"
+    short_name    = var.short_name
+    short_name_lc = var.short_name_lc
+    location      = var.location
+    environment   = var.environment
 
   # Network Configuration
   vnet_address_space              = ["10.0.0.0/16"]
-  subnet_avd_address_prefixes     = ["10.0.1.0/24"]
-  subnet_bastion_address_prefixes = ["10.0.2.0/24"]
+  subnet_avd_address_prefixes     = ["10.10.1.0/24"]
+  subnet_bastion_address_prefixes = ["10.10.2.0/24"]
 }
 
 # Outputs for easy reference
