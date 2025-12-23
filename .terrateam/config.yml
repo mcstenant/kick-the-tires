@@ -3,25 +3,32 @@ apply_requirements: []
 create_and_select_workspace: false
 enabled: true
 parallel: true
-storage:
-  type: terrateam
-
-workspaces:
-  - dir: dev
-    tags:
-      - dev
-    workflow: default
 
 workflows:
   default:
-    apply:
-      steps:
-        - type: init
-        - type: apply
     plan:
       steps:
         - type: init
         - type: plan
+    apply:
+      steps:
+        - type: init
+        - type: apply
+
+integrations:
+  resourcely:
+    enabled: false
+
+hooks:
+  all: []
+
+when_modified:
+  autoplan: true
+
+dirspaces:
+  - dir: dev
+    workspace: default
+    workflow: default
 
 access_control:
   enabled: true
