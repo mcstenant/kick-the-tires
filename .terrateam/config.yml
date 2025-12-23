@@ -1,0 +1,31 @@
+api_base_url: https://api.terrateam.io
+apply_requirements: []
+create_and_select_workspace: false
+enabled: true
+parallel: true
+storage:
+  type: terrateam
+
+workspaces:
+  - dir: dev
+    tags:
+      - dev
+    workflow: default
+
+workflows:
+  default:
+    apply:
+      steps:
+        - type: init
+        - type: apply
+    plan:
+      steps:
+        - type: init
+        - type: plan
+
+access_control:
+  enabled: true
+  plan:
+    enabled: true
+  apply:
+    enabled: true
